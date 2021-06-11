@@ -36,7 +36,7 @@ jobs:
 
             if [[ ! -d "$WORK_DIR" ]]
             then
-              git clone git@github.com:${{ github.repository }}.git $WORK_DIR
+              git clone https://github.com/${{ github.repository }}.git $WORK_DIR
             fi
 
             cd $WORK_DIR
