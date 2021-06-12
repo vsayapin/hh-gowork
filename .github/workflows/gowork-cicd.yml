@@ -1,6 +1,7 @@
 name: GoWork schedule Server cleaning
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "3 0 12,26 * *"
 
