@@ -40,6 +40,7 @@ jobs:
 
             cd $WORK_DIR
 
+            git reset --hard
             git checkout master
             git pull
 
