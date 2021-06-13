@@ -18,3 +18,29 @@ jobs:
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
+
+      - name: Run migration on remote Server by SSH
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          username: ${{ secrets.SSH_USER }}
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            HOME_DIR="/home/${{ secrets.SSH_USER }}"
+            WORK_DIR="$HOME_DIR/app/varchugov/hh-gowork"
+
+            if [[ ! -d "$WORK_DIR" ]]
+            then
+              git clone https://github.com/varchugov/hh-gowork.git $WORK_DIR
+            fi
+
+            cd $WORK_DIR
+
+            git fetch
+            git checkout "${{ steps.extract_branch.outputs.branch }}"
+            git pull
+
+            docker-compose exec postgres psql -U hh -f "/home/migrations/${{ github.event.inputs.filename }}"
+            git checkout master
+            git pull
