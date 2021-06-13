@@ -41,6 +41,6 @@ jobs:
             git checkout "${{ steps.extract_branch.outputs.branch }}"
             git pull
 
-            docker-compose exec postgres psql -U hh -f "/home/migrations/${{ github.event.inputs.filename }}"
+            docker-compose exec -T postgres psql -U hh -f "/home/migrations/${{ github.event.inputs.filename }}"
             git checkout master
             git pull
