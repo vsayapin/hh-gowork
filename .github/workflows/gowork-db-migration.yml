@@ -36,9 +36,7 @@ jobs:
             fi
 
             cd $WORK_DIR
-
-            git fetch
-            git checkout "${{ steps.extract_branch.outputs.branch }}"
+            git checkout master
             git pull
 
             docker-compose exec -T postgres psql -U hh -f "/home/migrations/${{ github.event.inputs.filename }}"
