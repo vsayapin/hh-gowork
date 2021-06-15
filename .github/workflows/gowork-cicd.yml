@@ -11,9 +11,7 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
-    concurrency:
-      group: ${{ github.head_ref }}
-      cancel-in-progress: true
+    concurrency: ci-${{ github.ref }}
 
     steps:
 
