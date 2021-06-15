@@ -1,4 +1,4 @@
-name: GoWork CI/CD
+name: GoWork CI-CD
 
 on:
   push:
