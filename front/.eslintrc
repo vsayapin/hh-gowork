@@ -8,7 +8,6 @@
         "prettier/prettier": [
             "error",
             {
-                // TODO: протестировать правило
                 "endOfLine": "auto"
             }
         ],
