@@ -2,7 +2,7 @@ name: GoWork CI/CD
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, temp ]
 
   workflow_dispatch:
 
@@ -12,12 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-      - name: Check Out Repo
-        uses: actions/checkout@v2
-
-      - name: Build and test Prod Environment
-        run: docker-compose -f docker-compose.prod.yaml build
+      - name: build-and-test
+        uses: whatnick/wait-action@master
+        with:
+          time: '90s'
 
   deploy:
     runs-on: ubuntu-latest
@@ -26,9 +24,7 @@ jobs:
     concurrency: cd-${{ github.ref }}
 
     steps:
-
-      - name: Check Out Repo
-        uses: actions/checkout@v2
-
-      - name: Build and test Prod Environment
-        run: docker-compose -f docker-compose.prod.yaml build
+      - name: deploy
+        uses: whatnick/wait-action@master
+        with:
+          time: '90s'
