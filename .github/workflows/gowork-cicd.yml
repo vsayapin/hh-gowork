@@ -6,10 +6,6 @@ on:
 
   workflow_dispatch:
 
-  workflow_run:
-    workflows: [ "GoWork CI/CD" ]
-    types: [ completed ]
-
 jobs:
 
   build-and-test:
