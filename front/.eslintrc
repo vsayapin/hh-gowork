@@ -1,12 +1,14 @@
 {
     "root": true,
     "parser": "babel-eslint",
+    // https://github.com/hhru/eslint-config-hh
     "extends": ["@hh.ru/eslint-config", "prettier", "plugin:react/recommended"],
     "plugins": ["prettier", "react"],
     "rules": {
         "prettier/prettier": [
             "error",
             {
+                // TODO: протестировать правило
                 "endOfLine": "auto"
             }
         ],

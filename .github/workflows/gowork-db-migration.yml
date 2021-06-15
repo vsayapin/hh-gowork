@@ -4,8 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       filename:
-        description: 'Migration filename to rn'
+        description: 'Migration filename to run'
         required: true
+
+concurrency: cd-${{ github.ref }}
 
 jobs:
 
@@ -43,9 +45,12 @@ jobs:
 
             docker-compose exec -T postgres psql -U hh -f "/home/migrations/${{ github.event.inputs.filename }}"
 
+            git clean -f
             git reset --hard
+
             git checkout master
             git pull
+
             if [[ ! "${{ steps.extract_branch.outputs.branch }}" == "master" ]]
             then
               git branch -D "${{ steps.extract_branch.outputs.branch }}"
