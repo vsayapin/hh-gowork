@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       filename:
-        description: 'Migration filename to run'
+        description: 'Migration filename to rn'
         required: true
 
 jobs:
