@@ -9,6 +9,7 @@ import Cookies from 'js-cookie';
 
 import Form from 'src/components/shared/Form';
 import Header from 'src/components/shared/Header';
+import HHLoginButton from 'src/components/shared/HHLoginButton';
 import LinkButton from 'src/components/shared/LinkButton';
 
 import Api from 'src/api';
@@ -94,7 +95,7 @@ const SignIn = (props) => {
                         Введите данные, указанные при регистрации
                     </Box>
                     <Form
-                        textFields={[
+                        fields={[
                             {
                                 label: 'E-Mail',
                                 type: 'email',
@@ -116,6 +117,7 @@ const SignIn = (props) => {
                         onInputChange={onInputChange}
                         errorMessage={formErrorMessage}
                     />
+                    <HHLoginButton />
                     <LinkButton href="/signup" name="Регистрация" color={'primary'} />
                 </Box>
             </Container>
