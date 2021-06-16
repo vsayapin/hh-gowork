@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ build-and-test ]
 
-    concurrency: cd-${{ github.ref }}
+    concurrency: cd-thread
 
     steps:
       - name: deploy
