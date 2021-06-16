@@ -4,7 +4,7 @@
 ```console
 docker-compose up -d
 ```
-3. To get a console to a running container run:
+3. To get a console to a running container run
 ```console
 docker-compose exec back bash
 docker-compose exec front bash
