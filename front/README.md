@@ -1,6 +1,6 @@
 ## Настройка _NODE_PATH_ для ESlint и Prettier в vscode _(и не только)_
 
-Перейдите в директорию `hh-gowork/front`,  зависимости командой `yarn`
+Перейдите в директорию `hh-gowork/front`, поднимите зависимости командой `yarn`
 (Если вы пользуетесь **IDE JetBrains**, то после этого шага все готово к работе\*)
 и установите [Editor SDKs](https://yarnpkg.com/getting-started/editor-sdks):
 
